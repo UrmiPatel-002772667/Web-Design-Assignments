@@ -14,7 +14,7 @@ HTML tags are used to create web pages. Some of the  HTML tags are listed below:
 - Tel: The <input> tag with the attribute type="tel" creates an input field for a telephone number. This input element is a one-line plain-text edit control for entering a telephone number.
 - Mailto: A mailto link in HTML is a hyperlink that redirects users to an email address instead of a link. 
 - <b>: Bold text is indicated via the <b> element without any further significance.
-- <h1>, <h2>, <h3>, <h4>, <h5>: The most used HTML headings for marking up a web page title are the H1, H2, H3, H4 and H5 tag.
+- <h1>, <h2>, <h3>, <h4>, <h5>: The most used HTML headings for marking up a web page title are the H1, H2, H3, H4, and H5 tags.
 - <input>: The <input> tag specifies an input field where the user can enter data.
 - <div>: The <div> tag defines a division or a section in an HTML document.
 - <section>: The <section> element is a structural HTML element used to group together related elements.
