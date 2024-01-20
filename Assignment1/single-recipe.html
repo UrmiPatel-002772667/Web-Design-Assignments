@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avocado Toast Recipe</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <!-- nav  -->
+    <nav class="navbar">
+      <div class="nav-center">
+        <div class="nav-header">
+          <a href="index.html" class="nav-logo">
+            <img src="./assets/logo.png" alt="Urmi's Recipes" />
+          </a>
+          <button class="nav-btn btn">
+            <i class="fas fa-align-justify"></i>
+          </button>
+        </div>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link"> home </a>
+          <a href="about.html" class="nav-link"> about </a>
+          <a href="recipes.html" class="nav-link"> recipes </a>
+
+          <div class="nav-link contact-link">
+            <a href="contact.html" class="btn"> contact </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end of nav -->
+    <main class="page">
+      <div class="recipe-page">
+        <section class="recipe-hero">
+          <img
+            src="./assets/recipes/AvocadoToast.webp"
+            class="img recipe-hero-img"
+          />
+          <article class="recipe-info">
+            <h2>Avocado Toast</h2>
+            <p>
+              We’re going back to basics this summer, so let’s talk about avocado toast! Creamy avocado spread onto well-toasted bread is one of my favorite quick meals. Actually, it’s one of my favorite meals in general. It’s so delicious, I’d call it one of life’s simplest pleasures.
+            </p>
+            <div class="recipe-icons">
+              <article>
+                <i class="fas fa-clock"></i>
+                <h5>prep time</h5>
+                <p>10 min.</p>
+              </article>
+              <article>
+                <i class="far fa-clock"></i>
+                <h5>cook time</h5>
+                <p>10 min.</p>
+              </article>
+              <article>
+                <i class="fas fa-user-friends"></i>
+                <h5>serving</h5>
+                <p>1 servings</p>
+              </article>
+            </div>
+            <p class="recipe-tags">
+              Tags : 
+              <a href="tag-template.html">Breakfast Recipes</a>
+            </p>
+          </article>
+        </section>
+        <!-- content -->
+        <section class="recipe-content">
+          <article>
+            <video controls autoplay>
+              <source src="assets/Video.mp4" type="video/mp4">
+            </video>
+            <h4>instructions</h4>
+            <!-- single instruction -->
+            <div class="single-instruction">
+              <header>
+                <p>1. Pick great avocados</p>
+                <div></div>
+              </header>
+              <p>
+                You want ripe but not over-ripe Hass avocados. 
+              </p>
+            </div>
+            <!-- end of single instruction -->
+            <!-- single instruction -->
+            <div class="single-instruction">
+              <header>
+                <p>2. Buy good bread and toast it well</p>
+                <div></div>
+              </header>
+              <p>
+                I think sturdy, thick-sliced, whole grain bread make the best avocado toast. 
+              </p>
+            </div>
+            <!-- end of single instruction -->
+            <!-- single instruction -->
+            <div class="single-instruction">
+              <header>
+                <p>3. Mash your avocado add Chopped Onions and Tomatos</p>
+                <div></div>
+              </header>
+              <p>
+                Mashed avocado is more creamy and luxurious than sliced avocado. Then add some chopped onions and tomatos. Mix it well!! 
+              </p>
+            </div>
+            <!-- end of single instruction -->
+            <!-- single instruction -->
+            <div class="single-instruction">
+              <header>
+                <p>4. Don’t forget the salt and Lemon</p>
+                <div></div>
+              </header>
+              <p>
+                You’ll want to mix in at least a pinch of salt and lemon juice per avocado half. 
+              </p>
+            </div>
+            <!-- end of single instruction -->
+          </article>
+          <article class="second-column">
+            <div>
+              <h4>ingredients</h4>
+              <menu>
+                <li class="single-ingredient">2 Slice of Bread</li>
+                <li class="single-ingredient">1 Ripe Avocado</li>
+                <li class="single-ingredient">Pinch of Salt</li>
+                <li class="single-ingredient">Any Extra Toppings</li>
+              </menu>
+              <details>
+                <summary><b>Want Some Tips</b></summary>
+                  <p><b>Add garlic: </b> Lightly rub a peeled raw garlic clove over the top of your toast before adding the avocado, or mix a tiny pinch of garlic powder into the avocado.</p>
+                  <p><b>Add fresh leafy herbs or your favorite herbed sauce</b></p>
+                  <p><b>More extras: </b>Quick-pickled onions or radishes or jalapeños, your favorite hot sauce, or a sprinkle of sliced cherry tomatoes.</p>
+              </details>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="page-footer">
+      <p>
+        &copy; <span id="date"></span>
+        <span class="footer-logo">Urmi's Recipes</span> Built by
+        Urmi Patel
+      </p>
+    </footer>
+  </body>
+</html>
