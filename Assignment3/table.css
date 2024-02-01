@@ -1,0 +1,71 @@
+#myTable input {
+  margin-left: 5px;
+}
+
+#myTable {
+  border: 2px solid green;
+  border-collapse: collapse;
+  margin: 30px 30px 20px 40px;
+}
+#myTable td,
+th {
+  border: 1px solid green;
+  padding: 5px;
+}
+#myTable th {
+  color: #fff;
+  background-color: #a7c942;
+}
+
+#button {
+  color: #fff;
+  background-color: orange;
+  border-radius: 3px;
+  border: 2px solid rgb(82, 82, 82);
+  margin-left: 180px;
+}
+
+.dropDownTextArea {
+  display: none;
+}
+
+.columnHide {
+  display: none;
+}
+
+/* Styles for the modal dialog */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal-content {
+	background-color: white;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
