@@ -1,10 +1,12 @@
 const table = document.getElementById("myTable");
-
 const checkedMarkRows = table.getElementsByTagName("input");
+let lastBudget = 34567;
+let selectedRow = "closed";
+
 landingPage();
 function displayUserDetails() {
   const fullName = 'Urmi Patel'; 
-  const nuid = '002772667'; // Replace with dynamic data
+  const nuid = '002772667'; 
   document.getElementById('user-details').textContent = `Full Name: ${fullName}, NUID: ${nuid}`;
 }
 function landingPage() {
@@ -14,8 +16,8 @@ function landingPage() {
     var selectedRow = checkedMarkRows[i].parentNode.parentNode;
     if (!checkedMarkRows[i].checked) {
       count++;
-      selectedRow.querySelectorAll("td")[8].classList.add("columnHide");
-      selectedRow.querySelectorAll("td")[9].classList.add("columnHide");
+      hideColumn(selectedRow, 8);
+      hideColumn(selectedRow, 9);
     }
   }
 
@@ -23,17 +25,27 @@ function landingPage() {
     submitActionButton.style.backgroundColor = "gray";
     submitActionButton.style.border = "";
     submitActionButton.disabled = true;
-    document
-      .querySelectorAll("tr")[0]
-      .querySelectorAll("th")[8]
-      .classList.add("columnHide");
-    document
-      .querySelectorAll("tr")[0]
-      .querySelectorAll("th")[9]
-      .classList.add("columnHide");
+    hideHeaderColumn(8);
+    hideHeaderColumn(9);
   }
 }
 
+function hideColumn(row, index) {
+  let cell = row.querySelectorAll("td")[index];
+  if (cell) {
+    cell.classList.add("columnHide");
+  }
+}
+
+function hideHeaderColumn(index) {
+  let headerRow = document.querySelectorAll("tr")[0];
+  if (headerRow) {
+    let header = headerRow.querySelectorAll("th")[index];
+    if (header) {
+      header.classList.add("columnHide");
+    }
+  }
+}
 
 function rowSelected(row) {
   const checkedMarkRow = row.parentNode.parentNode;
@@ -49,40 +61,25 @@ function rowSelected(row) {
 
 checkRows();
 
-function nextRowAddition() {
-  const row = table.insertRow(table.rows.length);
-
-  row.classList.add("dropDownTextArea");
-
-  row.innerHTML =
-    '<td colspan="8"> \
-        Advisor:<br /><br /> \
-        Award Details<br /> \
-        Summer 1-2014(TA)<br /> \
-        Budget Number: <br /> \
-        Tuition Number: <br /> \
-        Comments:<br /><br /><br /> \
-        Award Status:<br /><br /><br /> \
-      </td>';
-
-  checkRows();
-  landingPage();
-}
-
 function checkRows() {
   let countRows = 0;
   if (checkedMarkRows && checkedMarkRows.length > 0) {
     for (let i = 0; i < checkedMarkRows.length; i++) {
-      const row = checkedMarkRows[i].parentNode.parentNode;
-
       checkedMarkRows[i].addEventListener("click", () => {
+        const row = checkedMarkRows[i].parentNode.parentNode;
+
+        // Correctly identify the indices for 'Delete' and 'Edit' columns
+        const deleteColumnIndex = row.cells.length - 2; // Second-last column
+        const editColumnIndex = row.cells.length - 1; // Last column
+
         if (checkedMarkRows[i].checked) {
           countRows++;
           row.style.backgroundColor = "yellow";
-          row.lastElementChild.innerHTML =
-            "<td><button onClick='editRow(this)'>Edit</button></td>";
-          row.lastElementChild.previousElementSibling.innerHTML =
-            "<td><button onClick='deleteRow(this)'>Delete</button></td>";
+
+          // Ensure we're targeting the cells correctly
+          row.cells[deleteColumnIndex].innerHTML = "<button onclick='deleteRow(this)'>Delete</button>";
+          row.cells[editColumnIndex].innerHTML = "<button onclick='editRow(this)'>Edit</button>";
+
           document
             .querySelectorAll("tr")[0]
             .querySelectorAll("th")[8]
@@ -100,8 +97,8 @@ function checkRows() {
         } else {
           countRows--;
           row.style.backgroundColor = "white";
-          row.lastElementChild.innerHTML = "";
-          row.lastElementChild.previousElementSibling.innerHTML = "";
+          row.cells[deleteColumnIndex].innerHTML = "";
+          row.cells[editColumnIndex].innerHTML = "";
           row.querySelectorAll("td")[8].classList.add("columnHide");
           row.querySelectorAll("td")[9].classList.add("columnHide");
           if (countRows == 0) {
@@ -132,11 +129,15 @@ function checkRows() {
 
 function deleteRow(r) {
   const i = r.parentNode.parentNode.rowIndex;
+  const row = r.closest('tr');
+  const studentNumberCell = row.querySelector('td:nth-child(2)');
+  const studentNumber = studentNumberCell.textContent.match(/\d+/)[0];
   document.getElementById("myTable").deleteRow(i);
   document.getElementById("myTable").deleteRow(i);
-  alert("Row Deleted successfully!");
-  landingPage();
+  alert(`Student ${studentNumber} Record Deleted successfully`);
   checkRows();
+  landingPage();
+
 }
 
 function editRow(r) {
@@ -166,12 +167,10 @@ function closeEditModal() {
 function updateStudentDetails() {
   const modalTitle = document.getElementById('editModalTitle');
   const studentNumber = modalTitle.textContent.match(/\d+/)[0]; // Extract the student number
-  const message = `Student ${studentNumber} data updated successfully`;
-  alert(message);
+  alert(`Student ${studentNumber} data updated successfully`);
   closeEditModal();
 }
 
-let selectedRow = "closed";
 
 function addStudentRow() {
   const row = table.insertRow(table.rows.length);
@@ -184,10 +183,9 @@ function addStudentRow() {
   const type = row.insertCell(5);
   const budget = row.insertCell(6);
   const percentage = row.insertCell(7);
-  const deleteBtn1 = row.insertCell(8);
-  const editBtn2 = row.insertCell(9);
+  lastBudget += 11111;// Adjust for the header row
 
-  checkboxNew.innerHTML = '<td><input type="checkbox" /><br /><br /><img src="downarrow.png" width="25px" /></td>';
+  checkboxNew.innerHTML = '<td><input type="checkbox" /><br /><br /><img src="down.png" width="25px" /></td>';
   checkboxNew.querySelector('img').addEventListener('click', () => rowSelected(checkboxNew.querySelector('img')));
   student.innerHTML = `Student ${Math.ceil(countRows / 2)}`;
 
@@ -195,22 +193,46 @@ function addStudentRow() {
   awardStatus.innerHTML = "Approved";
   semester.innerHTML = "Fall";
   type.innerHTML = " TA ";
-  budget.innerHTML = Math.ceil(Math.random() * 100000);
+  budget.innerHTML = `${lastBudget.toString().padStart(5, '0')}`;
   percentage.innerHTML = "100%";
 
   try {
     setTimeout(() => {
       alert(
-        `Student Added Successfully with row number: ${Math.ceil(
-          countRows / 2
-        )}`
+        `Student ${Math.ceil(countRows / 2)} Record Added Successfully`
       );
     }, 100);
   } catch (error) {
     alert("Something went wrong!");
   }
-
   checkRows();
-  nextRowAddition();
+  addDetails();
   landingPage();
+
+
+}
+function addDetails(){
+  const row = table.insertRow(table.rows.length);
+
+  if (row) {
+    row.classList.add("dropDownTextArea");
+    const cell = row.insertCell(0);
+    if (cell) {
+      cell.colSpan = 8;
+      cell.innerHTML = `
+        <td colspan="8">
+        Advisor:<br /><br />
+        Award Details<br />
+        Semester 1-2014(TA)<br />
+        Budget Number: <br />
+        Tuition Number: <br />
+        Comments:<br /><br /><br />
+        Award Status:<br /><br /><br />
+        </td>
+      `;
+    }
+  }
+  checkRows();
+  landingPage();
+
 }
