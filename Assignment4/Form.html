@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Feedback</title>
+    <style>
+      label {
+        float: left;
+        width: 150px;
+      }
+      #container {
+        width: 700px;
+        margin: auto;
+        background-color: beige;
+      }
+      main {
+        padding: 50px;
+      }
+      table {
+        width: 1300px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid;
+      }
+      .table-header {
+        text-align: center;
+        font-size: 24px;
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <main>
+        <h2>Feeback</h2>
+        <h3>Love something? Hate something? Let us know!</h3>
+        Note : Fields marked with an asterisk(*) are mandatory
+        <br><br>
+        <form id="myForm">
+          <label>Title*:</label>
+          <input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+			    <input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+    			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+		    	<br><br>
+          <label for="firstName">First Name*:</label>
+          <input type="text" name="firstName" id="firstName" placeholder="First Name" minlength="2"/>	
+          <br><br>
+          <div id="error_firstName" style="display: none; color: red">
+            Please Enter valid first name. First Name is mandatory
+            <br><br>
+          </div>
+
+          <label for="lastName">Last Name*:</label>
+          <input type="text" name="lastName" id="lastName" placeholder="Last Name" minlength="2" />
+          <br><br>
+          <div id="error_lastName" style="display: none; color: red">
+            Please Enter valid last name. Last Name is mandatory
+            <br><br>
+          </div>
+
+          <label for="emailId">Email Id*:</label>
+          <input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" />
+          <br><br>
+          <div id="error_emailId" style="display: none; color: red">
+            Please Enter valid amail address with @northeastern.edu. Email
+            Address is mandatory
+            <br><br>
+          </div>
+
+          <label for="phoneNumber">Phone Number*:</label>
+			    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+			    <br><br>
+          <div id="error_phoneNumber" style="display: none; color: red">
+            Please Enter valid phone number. Phone Number is mandatory
+            <br><br>
+          </div>
+
+          <label for="streetAddress1">Street Address 1*:</label>
+          <input type="text" name="streetAddress1" id="streetAddress1" placeholder="address"/>
+          <br><br>
+          <div id="error_streetAddress1" style="display: none; color: red">
+            Please Enter valid street address 1. Street Address 1 is mandatory
+            <br><br>
+          </div>
+
+          <label for="streetAddress2">Street Address 2:</label>
+          <input type="text" name="streetAddress2" id="streetAddress2" placeholder="address"/>
+          <br><br>
+
+          <label for="city">City*:</label>
+          <input type="text" name="city" id="city" placeholder="city" />
+          <br><br>
+          <div id="error_city" style="display: none; color: red">
+            Please Enter valid city. City name is mandatory
+            <br><br>
+          </div>
+
+          <label for="state">State*:</label>
+          <input type="text" name="state" id="state" placeholder="state" />
+          <br><br>
+          <div id="error_state" style="display: none; color: red">
+            Please Enter valid state. State is mandatory
+            <br><br>
+          </div>
+
+          <label for="zipcode">ZipCode*:</label>
+          <input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" maxlength="5"/>
+          <br><br>
+          <div id="error_zipcode" style="display: none; color: red">
+            Please Enter valid zipcode. Zipcode is mandatory
+            <br><br>
+          </div>
+
+          <label for="source">How did you hear*:</label>
+          <input type="checkbox" name="source" id="source" value="facebook" />Facebook
+          <input type="checkbox" name="source" id="source" value="google" />Google
+          <input type="checkbox" name="source" id="source" value="yelp" />Yelp <br /><br />
+          <div id="error_source" style="display: none; color: red">
+            Please check valid source. Source is mandatory
+            <br><br>
+          </div>
+
+          <label for="drinks">Drinks*:</label>
+          <select id="myDrinkList">
+            <option>---Please choose a drink---</option>
+            <option>Hot Black Tea</option>
+            <option>Cold Coffee</option>
+            <option>Lemon Iced Tea</option>
+            <option>Expresso</option>
+            <option>Latte</option>
+          </select>
+          <br><br>
+          <div id="error_drinks" style="display: none; color: red">
+            Please select valid drinks. Drinks are mandatory
+            <br><br>
+          </div>
+
+          <div id="dynamicCB" class="dynamicCB"><br><br></div><br>
+          <div id="additionalCustom" class="additionalCustom"><br>
+            <label for="customisation">Any additonal <br>Customisation*:</label>
+            <textarea name="customisation" id="customisation" cols="30" rows="10"></textarea>
+            <br><br>
+          </div>
+          <div id="error_addComments" style="display: none; color: red">
+            Please enter valid additional comments. Additional comments are
+            mandatory
+            <br><br>
+          </div>
+
+          <label for="comments">Comments*:</label>
+          <textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+          <br><br>
+          <div id="error_comments" style="display: none; color: red">
+            Please Enter valid comments. Comments are mandatory
+            <br><br>
+          </div>
+
+          <input type="Submit" id="submit" disabled/>
+          <input type="Reset" />
+          <br /><br />
+        </form>
+      </main>
+    </div>
+    <div class="table-container">
+      <h2 class="table-header">Feedback Details:</h2>
+      <br />
+      <table id="tableData">
+        <tr>
+          <th>Full Name</th>
+          <th>Email ID</th>
+          <th>Phone Number</th>
+          <th>Street Address 1</th>
+          <th>Street Address 2</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip Code</th>
+          <th>Source</th>
+          <th>Drinks</th>
+          <th>Additional Customization</th>
+          <th>Comments</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <br /><br />
+    </div>
+    <script>
+      var form = document.getElementById("myForm");
+      form.addEventListener("submit", submitted);
+      form.addEventListener("reset", resetForm);
+
+      const titles = document.querySelectorAll('input[name="title"]');
+      var validTitleBool = false, validFirstName = false, validLastName = false, validEmail = false, validPhone = false;
+      var validStreet = false, validCity = false, validState = false, validZipCode = false;
+      var validSource = false, validBool = true, validDrinks = false, validComments = false;
+
+      //variable checks using regex
+      var regExName = /^[a-zA-Z ]+$/;
+      var regExEmail = /^[a-z0-9]+@northeastern.edu+$/;
+      var regExPhone = /\d{3}-?\d{3}-\d{4}$/;
+      var regExZipcode = /\d{5}/;
+
+      var firstName = document.getElementById("firstName");
+      firstName.addEventListener("input", validate);
+
+      var lastName = document.getElementById("lastName");
+      lastName.addEventListener("input", validate);
+
+      var emailId = document.getElementById("emailId");
+      emailId.addEventListener("input", validate);
+
+      var phoneNumber = document.getElementById("phoneNumber");
+      phoneNumber.addEventListener("input", validate);
+
+      var streetAddress1 = document.getElementById("streetAddress1");
+      streetAddress1.addEventListener("input", validate);
+
+      var city = document.getElementById("city");
+      city.addEventListener("input", validate);
+
+      var state = document.getElementById("state");
+      state.addEventListener("input", validate);
+
+      var zipcode = document.getElementById("zipcode");
+      zipcode.addEventListener("input", validate);
+
+      var source = document.getElementById("source");
+      source.addEventListener("input", validate);
+
+      var comments = document.getElementById("comments");
+      comments.addEventListener("input", validate);
+
+      // Select the Submit button by its ID
+      const submitButton = document.getElementById('submit');
+
+      function resetForm(e) {
+        e.target.reset();
+        dynamicCB.style.display = "none";
+        additionalCustom.style.display = "none";
+        submitButton.disabled = true;
+      }
+      
+      //We must create a function to validate.
+      function validate(e) {
+        var value = e.target.value;
+        var type = this.id;
+        var em = "error_" + type;
+
+        switch (type) {
+          case "firstName":
+            if (!value.trim().match(regExName) || value.trim() === "" || firstName.length < 2) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validFirstName = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validFirstName = true;
+            }
+            break;
+          case "lastName":
+            if (!value.trim().match(regExName) || value.trim() == "" || lastName.length < 2) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validLastName = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validLastName = true;
+            }
+            break;
+          case "emailId":
+            if (!value.trim().match(regExEmail) || value.trim() == "") {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validEmail = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validEmail = true;
+            }
+            break;
+          case "phoneNumber":
+            if (!value.trim().match(regExPhone) || value.trim() == "") {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validPhone = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validPhone = true;
+            }
+            break;
+          case "streetAddress1":
+            if (value.trim().length == 0 || value.trim() == "" || streetAddress1.length < 2) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validStreet = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validStreet = true;
+            }
+            break;
+          case "city":
+            if (value.trim().length == 0 || value.trim() == "" ) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validCity = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validCity = true;
+            }
+            break;
+          case "state":
+            if (value.trim().length == 0 || value.trim() == "" ) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validState = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validState = true;
+            }
+            break;
+          case "zipcode":
+            if (!value.trim().match(regExZipcode) || value.trim() == "") {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validZipCode = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validZipCode = true;
+            }
+            break;
+          case "source":
+            if (value.trim().length == 0 || value.trim() == "") {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validSource = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validSource = true;
+            }
+            break;
+          case "comments" :
+            if (value.trim().length == 0 || value.trim() == "") {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validComments = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validComments = true;
+            }
+            break;
+        }
+        if (
+          validFirstName && validLastName && validEmail && validPhone &&
+          validStreet && validCity && validState && validZipCode &&
+          validSource && validDrinks && validBool && validComments
+        ) {
+          submitButton.disabled = false;
+        }
+        else{
+          submitButton.disabled = true;
+        }
+
+      }
+
+      //drinkSelected method
+      const myDrinkList = document.getElementById("myDrinkList");
+      const additionalCustom = document.getElementById("additionalCustom");
+      const dynamicCB = document.getElementById("dynamicCB");
+      const customisation = document.getElementById("customisation");
+
+      dynamicCB.style.display = "none";
+      additionalCustom.style.display = "none";
+
+      dynamicCB.innerHTML = "";
+
+      myDrinkList.onchange = (e) => {
+        if (e.target.value == "Hot Black Tea") {
+          validDrinks = true;
+          dynamicCB.style.display = "block";
+          additionalCustom.style.display = "none";
+
+          document.getElementById("dynamicCB").innerHTML = `<br>
+            <label for="hear">Hot Black Tea - Large <br> ($1 extra):</label>
+      <input type='checkbox' id="checkbox1" name="source" value="Hot Black Tea" />
+            <br><br>
+            `;
+
+          const messageCB1 = document.getElementById("checkbox1");
+
+          messageCB1.addEventListener("click", () => {
+            if (messageCB1.checked) {
+              additionalCustom.style.display = "block";
+              if (customisation.value.length == 0 || customisation.value.trim() === "")  {
+                validBool = false;
+              } else {
+                customisation.value = "";
+                validBool = true;
+              }
+            } else {
+              additionalCustom.style.display = "none";
+              validBool = true;
+            }
+          });
+        } else if (e.target.value == "Cold Coffee") {
+          validDrinks = true;
+          dynamicCB.style.display = "block";
+          additionalCustom.style.display = "none";
+
+          document.getElementById("dynamicCB").innerHTML = `<br>
+            <label for="hear">Cold Coffee - Large <br> ($1 extra):</label>
+      <input type='checkbox' id="checkbox2" name="source" value="Cold Coffee" />
+            <br><br>
+            `;
+
+          const messageCB2 = document.getElementById("checkbox2");
+
+          messageCB2.addEventListener("click", () => {
+            if (messageCB2.checked) {
+              additionalCustom.style.display = "block";
+              if (customisation.value.length == 0 || customisation.value.trim() === "")  {
+                validBool = false;
+              } else {
+                customisation.value = "";
+                validBool = true;
+              }
+            } else {
+              additionalCustom.style.display = "none";
+              validBool = true;
+            }
+          });
+        } else if (e.target.value == "Lemon Iced Tea") {
+          validDrinks = true;
+          dynamicCB.style.display = "block";
+          additionalCustom.style.display = "none";
+
+          document.getElementById("dynamicCB").innerHTML = `<br>
+            <label for="hear">Lemon Iced Tea - Large <br> ($1 extra):</label>
+      <input type='checkbox' id="checkbox3" name="source" value="Lemon Iced Tea" />
+            <br><br>
+            `;
+
+          const messageCB3 = document.getElementById("checkbox3");
+
+          messageCB3.addEventListener("click", () => {
+            if (messageCB3.checked) {
+              additionalCustom.style.display = "block";
+              if (customisation.value.length == 0 || customisation.value.trim() === "") {
+                validBool = false;
+              } else {
+                customisation.value = "";
+                validBool = true;
+              }
+            } else {
+              additionalCustom.style.display = "none";
+              validBool = true;
+            }
+          });
+        } else if (e.target.value == "Expresso") {
+          validDrinks = true;
+          dynamicCB.style.display = "block";
+          additionalCustom.style.display = "none";
+
+          document.getElementById("dynamicCB").innerHTML = `<br>
+            <label for="hear">Expresso - Large <br> ($1 extra):</label>
+      <input type='checkbox' id="checkbox4" name="source" value="Expresso" />
+            <br><br>
+            `;
+
+          const messageCB4 = document.getElementById("checkbox4");
+
+          messageCB4.addEventListener("click", () => {
+            if (messageCB4.checked) {
+              additionalCustom.style.display = "block";
+              if (customisation.value.length == 0 || customisation.value.trim() === "") {
+                validBool = false;
+              } else {
+                customisation.value = "";
+                validBool = true;
+              }
+            } else {
+              additionalCustom.style.display = "none";
+              validBool = true;
+            }
+          });
+        } else if (e.target.value == "Latte") {
+          validDrinks = true;
+          dynamicCB.style.display = "block";
+          additionalCustom.style.display = "none";
+
+          document.getElementById("dynamicCB").innerHTML = `<br>
+            <label for="hear">Latte - Large <br> ($1 extra):</label>
+      <input type='checkbox' id="checkbox5" name="source" value="Latte" />
+            <br><br>
+            `;
+
+          const messageCB5 = document.getElementById("checkbox5");
+
+          messageCB5.addEventListener("click", () => {
+            if (messageCB5.checked) {
+              additionalCustom.style.display = "block";
+              if (customisation.value.length == 0 || customisation.value.trim() === "") {
+                validBool = false;
+              } else {
+                customisation.value = "";
+                validBool = true;
+              }
+            } else {
+              additionalCustom.style.display = "none";
+              validBool = true;
+            }
+          });
+        } else {
+          dynamicCB.style.display = "none";
+          additionalCustom.style.display = "none";
+          validDrinks = false;
+        }
+      };
+
+      function submitted(e) {
+        let title;
+        for (let i = 0; i < titles.length; i++) {
+          if (titles[i].checked) {
+            validTitleBool = true;
+            title = titles[i].value;
+          }
+        }
+        e.preventDefault();
+        if (validBool == false && customisation.value.length != 0) {
+          validBool = true;
+        }
+          tableData.innerHTML += `
+      	<tr>
+      		<td>${title.charAt(0).toUpperCase() + title.slice(1)}. ${
+            document.getElementById("firstName").value
+          } ${document.getElementById("lastName").value}</td>
+      		<td>${document.getElementById("emailId").value}</td>
+      		<td>${document.getElementById("phoneNumber").value}</td>
+      		<td>${document.getElementById("streetAddress1").value}</td>
+      		<td>${document.getElementById("streetAddress2").value}</td>
+      		<td>${document.getElementById("city").value}</td>
+      		<td>${document.getElementById("state").value}</td>
+      		<td>${document.getElementById("zipcode").value}</td>
+          <td>${document.getElementById("source").value}</td>
+      		<td>${document.getElementById("myDrinkList").value}</td>
+      		<td>${document.getElementById("customisation").value}</td>
+      		<td>${document.getElementById("comments").value}</td>
+      	</tr>
+      	`;
+          alert("Data is saved succesfully");
+          e.target.reset();
+          dynamicCB.style.display = "none";
+          additionalCustom.style.display = "none";
+          submitButton.disabled = true;
+      }
+    </script>
+  </body>
+</html>
