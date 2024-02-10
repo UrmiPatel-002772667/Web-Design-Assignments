@@ -1,0 +1,20 @@
+Assignment 4
+
+1.	Use Form.html code to do the assignment.
+2.	Add validations for the form for all the fields.
+  a.	Not null
+  b.	Min length
+  c.	Max length
+  d.	Fields with alphanumeric should not accept special characters.
+3.	The Submit button should be disabled until all validations on the fields are passed.
+4.	Use regex to validate the phone number, email and zip code.
+5.	Validation should show a red color text along with each field and disappear on correcting a particular field.
+6.	Validation should be on the key events NOT at the end when the submit button is pressed.
+7.	Create a single select list box that has 5 elements.
+8.	Write an onChange event for the created list which adds a checkbox that changes dynamically for each selection.
+9.	If the checkbox is enabled, add a text field and make it mandatory and on disabling the checkbox, the text field should disappear.
+10.	On submit, create an HTML table that takes all the data from the previously submitted form and displays results.
+11.	On submitting, make sure all the form fields get cleared out.
+12.	Add validation for email address (restrict the domain to @northeastern.edu)
+13.	Street address 2 is not a mandatory field, on the submit click if the field is blank then its value in the table should be blank as well.
+
