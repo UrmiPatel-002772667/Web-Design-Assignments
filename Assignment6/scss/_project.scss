@@ -39,6 +39,8 @@
 					top: 0%;
 					left: 50%;
 					right: auto;
+					border-radius: $bdrs-icon;
+
 					z-index: -1;
 					transform: translateX(-50%);
 					animation: fillTop 2s forwards 4s ease-in-out;

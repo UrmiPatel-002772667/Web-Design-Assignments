@@ -50,7 +50,6 @@
 		right: calc(#{-$parentWidth / $numDots} + #{$dotWidth / 2});
   }
 		
-	
 	span{
 		width: 1px;
 		height: 1px;
@@ -72,8 +71,8 @@
     }
 		&::before{
 			content: attr(data-info);
-			top: -65px;
-			width: 70px;
+			top: -75px;
+			width: 100px;
 			transform: translateX(-5px) rotateZ(-45deg);
 			font-size: 15px;
 			text-indent: -10px;
