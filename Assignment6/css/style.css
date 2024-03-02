@@ -151,7 +151,7 @@ p {
   border-radius: 50%;
   text-align: center;
   font-size: 2rem;
-  background: #4f537b;
+  background: #144646;
 }
 .experienceTimeline .timeline-container .timeline-icon i {
   position: absolute;
@@ -185,7 +185,7 @@ p {
   margin-bottom: 1.4rem;
 }
 .experienceTimeline .timeline-container .timeline-body .timeline-title .badge {
-  background: #4f537b;
+  background: #144646;
   padding: 4px 8px;
   border-radius: 3px;
   font-size: 12px;
@@ -205,15 +205,15 @@ p {
 }
 .experienceTimeline .timeline-container.primary .badge,
 .experienceTimeline .timeline-container.primary .timeline-icon {
-  background: #1d8cf8 !important;
+  background-color: #1d8cf8 !important;
 }
 .experienceTimeline .timeline-container.success .badge,
 .experienceTimeline .timeline-container.success .timeline-icon {
-  background: #00bf9a !important;
+  background-color: #00bf9a !important;
 }
 .experienceTimeline .timeline-container.danger .badge,
 .experienceTimeline .timeline-container.danger .timeline-icon {
-  background: #fd5d93 !important;
+  background-color: #fd5d93 !important;
 }
 
 .author {
@@ -358,6 +358,41 @@ p {
 }
 @media (max-width: 786px) {
   .timeline__event {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .timeline__event__content {
+    width: 100%;
+  }
+  .timeline__event__icon {
+    border-radius: 100%;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+  .timeline__event__icon:before, .timeline__event__icon:after {
+    display: none;
+  }
+  .timeline__event__date {
+    border-radius: 0;
+    padding: 20px;
+  }
+  .timeline__event:nth-child(2n+1) {
+    flex-direction: column;
+    align-self: center;
+  }
+  .timeline__event:nth-child(2n+1) .timeline__event__date {
+    border-radius: 0;
+    padding: 20px;
+  }
+  .timeline__event:nth-child(2n+1) .timeline__event__icon {
+    border-radius: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 425px) {
+  .timeline__event {
     flex-direction: column;
     align-self: center;
   }
@@ -386,7 +421,7 @@ p {
     padding: 20px;
   }
   .timeline__event:nth-child(2n+1) .timeline__event__icon {
-    border-radius: 6px 6px 0 0;
+    border-radius: 100%;
     margin: 0;
   }
 }
@@ -449,6 +484,7 @@ nav a:hover {
   top: 0%;
   left: 50%;
   right: auto;
+  border-radius: 100%;
   z-index: -1;
   transform: translateX(-50%);
   animation: fillTop 2s forwards 4s ease-in-out;
@@ -678,8 +714,8 @@ nav a:hover {
 }
 .input span::before {
   content: attr(data-info);
-  top: -65px;
-  width: 70px;
+  top: -75px;
+  width: 100px;
   transform: translateX(-5px) rotateZ(-45deg);
   font-size: 15px;
   text-indent: -10px;
