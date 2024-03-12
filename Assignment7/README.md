@@ -1,5 +1,7 @@
 Urmi Patel: 002772667 
+
 INFO6150 32314: Web Design/User Experience Engineering
+
 Assignment 7
 
 Part A: To use only JQuery and Arrow Function to Design a Simple Calculator Web Application.
