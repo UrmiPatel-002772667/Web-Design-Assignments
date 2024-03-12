@@ -1,9 +1,8 @@
-# ASSIGNMENT 6
+# ASSIGNMENT 7
 
 + Name: Urmi Patel
 + NUID: 002772667
 
-+ Topic: Assignment 7:
 + Part A: To use only JQuery and Arrow Function to Design a Simple Calculator Web Application.
 
 1. It must have two pages. The first page will be the Login Page,
