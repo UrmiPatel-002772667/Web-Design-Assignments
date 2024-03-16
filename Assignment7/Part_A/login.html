@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="stylecss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="login.js"></script>
+</head>
+
+<body>         
+    <h2 style="text-align: center; color: purple; ">Assignment 7 | Login Page</h2>
+    <div class="container">
+        <fieldset class="field_set">
+            <div class="child">
+                <form id="loginForm">
+                <div>
+                    <label for="email">Email </label>
+                    <input type="text" id="email" name="email" required  placeholder="Please enter your northeastern email id"><br>
+                    <span id="error"></span>
+                </div>
+                <div>
+                    <label for="user_name">User Name</label>
+                    <input type="text" id="user_name" name="user_name" required  placeholder="Please type your username in"><br>
+                    <span id="errorUserName"></span>
+                </div>
+                <div>
+                    <label for="pass">Password</label>
+                    <input type="password" id="password" name="password" required  placeholder="Please type your password in"><br>
+                    <span id="errorPassword"></span>
+                </div>
+                <div>
+                    <label for="pass">Confirm Password</label>
+                    <input type="password" id="cpassword" name="password" required  placeholder="Please type your password in"><br>
+                    <span id="cerrorPassword"></span>
+                </div>
+                <input type="submit" class="button" id="submit" disabled><br><br>
+            </form>
+            </div>
+            
+        </fieldset>
+    </div>
+</body>
+</html>
