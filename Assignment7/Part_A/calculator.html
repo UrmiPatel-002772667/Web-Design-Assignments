@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="stylecss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="calculator.js"></script>
+</head>
+
+<body>                
+    <h3 style="margin-left: 450px; color: purple;">Hello  <div id="username1"></div></h3>
+    <h2 style="text-align: center; color: purple; ">Assignment 7 | Calculator</h2>
+    <div class="container1">
+        <main>
+        <div class="child">
+            <fieldset class="field_set">
+                <legend style="  color: purple;">Calculator</legend>
+                <br><br><br>
+                <label for="number1">Number 1</label>
+                <input type="text" id="number1"><br>
+                <span id="errorNumber1"></span><br><br><br>
+                <label for="number2">Number 2</label>
+                <input type="text" id="number2"><br>
+                <span id="errorNumber2"></span><br><br><br>
+                <label for="result">Final Result </label>
+                <input type="text" id="result"><br><br><br>
+                <button class="button1" onclick="action(1)">Add</button>
+                <button class="button1" onclick="action(2)">Subtract</button>
+                <button class="button1" onclick="action(3)">Multiply</button>
+                <button class="button1" onclick="action(4)">Divide</button>
+        </div>
+        </fieldset>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch & Date Picker</title>
+</head>
+<style>
+.date-picker {
+  margin-bottom: 20px;
+}
+.container {
+        width: 1300px;
+        height: 700px;
+        margin: auto;
+        background-image: url(./pngtree.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+      body {
+        text-align: center;
+      }
+
+      main {
+        padding: 50px;
+      }
+
+      #timer {
+        text-align: center;
+        font-size: 35px;
+        font-weight: 200;
+        width: 250px;
+        border: none;
+        background-color: transparent;
+      }
+
+      .label {
+        display: inline-block;
+        min-width: 500px;
+        font-weight: bolder;
+      }
+      #start:hover {
+        background-color:#65d0de;
+        color: #4f597f;
+      }
+      #stop:hover {
+        background-color: #e97171;
+        color: #4f597f;
+      }
+      #reset:hover {
+        background-color: #61d8b1;
+        color: #4f597f;
+      }
+      button {
+        padding: 16px 32px;
+        text-align: center;
+        border-radius: 20%;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        background-color: #ceddfa;
+        color: #4f597f;
+        border: none;
+      }
+      
+</style>
+
+<div class="container"><br>
+  <h2 style="text-align: center">Assignment 7 | Part B</h2><br><br><br>      
+  <main>
+    <div class="timer-container"><br><br>
+      <label style="font-weight: bolder; font-size:40px;">Date:</label>
+      <div class="date-picker">
+        <input type="date" id="selectedDate">
+      </div>
+    </div>
+    <div class="timer-container">
+      <label style="font-weight: bolder; font-size:40px;">Time:</label><br>
+      <input id="timer" type="text" value="00:00:00" readonly>
+    </div>
+    <div class="button-container">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button><br>
+      <button id="reset">Reset</button>
+    </div>
+    
+  </main>
+</div>
+
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+const timer = document.getElementById("timer");
+const startBtn = document.getElementById("start");
+const stopBtn = document.getElementById("stop");
+const resetBtn = document.getElementById("reset");
+const startDateInput = document.getElementById('selectedDate');
+
+let intervalId;
+let startTime;
+let elapsedTime = 0;
+
+function formatTime(time) {
+  const date = new Date(time);
+  const hours = date.getUTCHours().toString().padStart(2, "0");
+  const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+  const seconds = date.getUTCSeconds().toString().padStart(2, "0");
+  return `${hours}:${minutes}:${seconds}`;
+}
+
+async function startTimer() {
+  startTime = Date.now() - elapsedTime;
+  intervalId = setInterval(() => {
+    elapsedTime = Date.now() - startTime;
+    timer.value = formatTime(elapsedTime);
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(intervalId);
+}
+
+function resetTimer() {
+  clearInterval(intervalId);
+  elapsedTime = 0;
+  timer.value = "00:00:00";
+}
+
+startBtn.addEventListener("click", async () => {
+  await startTimer();
+});
+
+stopBtn.addEventListener("click", () => {
+  stopTimer();
+});
+
+resetBtn.addEventListener("click", () => {
+  resetTimer();
+});
+
+// Event listener for date input change
+const dateInput = document.getElementById('selectedDate');
+
+// Set the initial value to today's date
+const today = new Date().toISOString().slice(0, 10); 
+dateInput.value = today;
+
+// Prevent manual editing
+dateInput.addEventListener('keydown', (event) => {
+  event.preventDefault();
+});
+</script>
+
+  
